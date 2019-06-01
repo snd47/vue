@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1> 
+       
+        <div class="note" v-for="(note, index) in notes" :key="index">
+            <div class="note-header">
+                <p>{{note.title}}</p>
+            </div>
+            <div class="note-body">
+                <p>{{note.descr}}</p>
+                <p>{{note.date}}</p>
+                <hr align="left" width="300" size="2" color ="#ff9900">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data: {
+                title: 'Notes App',
+                
+                notes: [
+                    {
+                        title: 'First Note',
+                        descr: 'Description for first note',
+                        date: new Date(Date.now()).toLocaleString()
+                    },
+                    {
+                        title: 'Second Note',
+                        descr: 'Description for second note',
+                        date: new Date(Date.now()).toLocaleString()
+                    },
+                    {
+                        title: 'Third Note',
+                        descr: 'Description for third note',
+                        date: new Date(Date.now()).toLocaleString()
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>  
