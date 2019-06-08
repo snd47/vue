@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://unpkg.com/vue"></script>
-    <title>Document</title>
-</head>
-<body>
-    <div id="app">
-        <h1>{{title}}</h1> 
+<template>
+  <div class="wrapper">
+    <div class="wrapper-content">
+      <section>
+        <div class="container">
+        <!-- div #app -->
+          <h1>{{title}}</h1> 
+        <div class="message" v-if="message">
+            <p>{{message}}</p>
+        </div>
         <!-- new note -->
         <div class="new-note">
             <input v-model="note.title" type="text">
@@ -29,18 +27,27 @@
                 <hr align="left" width="300" size="2" color ="#ff9900">
             </div>
         </div>
+        <!-- div #app -->
+        </div>
+      </section>
     </div>
+  </div>
+</template>
 
-    <script>
-        var app = new Vue({
-            el:'#app',
-            data: {
-                title: 'Notes App',
+<script>
+// import HelloWorld from './components/HelloWorld.vue'
+
+export default { 
+
+  data() {
+    return {
+      title: 'Notes App',
+                message: null,
                 note: {
                     title:'',
                     descr:''
                 },
-                notes: [
+     notes: [
                     {
                         title: 'First Note',
                         descr: 'Description for first note',
@@ -57,8 +64,10 @@
                         date: new Date(Date.now()).toLocaleString()
                     }
                 ]
-            },
-            methods: {
+
+      }
+    },
+    methods: {
                 addNote() {
                     // console.log(this.note)
                     // this.notes.push({
@@ -66,15 +75,33 @@
                     //     descr:this.note.descr
                     // })
                         let {title, descr} = this.note // destructuring
+
+                        if (title === '') {
+                            this.message='title can`t be blank!'
+                            return false
+                        }
                         this.notes.push({
                             title,                      // title:title
                             descr,
                             date: new Date(Date.now()).toLocaleString()
                         })
+                        this.note.title = ''
+                        this.note.descr = ''
+                        this.message = null
 
                 }
             }
-        })
-    </script>
-</body>
-</html>  
+  
+}
+</script>
+
+<style>
+#app {
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
