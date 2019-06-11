@@ -5,6 +5,15 @@
         <div class="container">
         <!-- div #app -->
           <h1>{{title}}</h1> 
+
+          <!-- добавляем компонент message как тег -->
+          <!-- <message>
+          </message> -->
+          <!-- или упрощенно так -->
+          <!-- <message  v-if="message" /> -->
+          <!-- <message    :mes="hello I am props" /> -->
+          <message    :mes="message" />
+
         <div class="message" v-if="message">
             <p>{{message}}</p>
         </div>
@@ -36,17 +45,25 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import message from '@/components/Message.vue'
+// @ - src
 
 export default { 
+
+  components: {
+    // message:message
+    message
+  },
 
   data() {
     return {
       title: 'Notes App',
-                message: null,
-                note: {
-                    title:'',
-                    descr:''
-                },
+      message: 0,
+      note: {
+          title:'',
+          descr:''
+         },
+
      notes: [
                     {
                         title: 'First Note',
