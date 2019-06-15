@@ -6,7 +6,7 @@
 export default {
     props: {
         mes: {
-            type:String,
+            type:[String, Number], 
             required: true
     }
 }
