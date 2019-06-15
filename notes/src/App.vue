@@ -18,24 +18,13 @@
             <p>{{message}}</p>
         </div>
         <!-- new note -->
-        <div class="new-note">
-            <input v-model="note.title" type="text">
-            <textarea v-model="note.descr"></textarea>
-            <button @click="addNote">new note</button>
-            <!-- <p>{{note.title}}</p> -->
-        </div>
+        <newNote :note="note" @addNote="addNote"/>
 
+        <notes 
+          :notes="notes"
+        />
         <!-- note list -->
-        <div class="note" v-for="(note, index) in notes" :key="index">
-            <div class="note-header">
-                <p>{{note.title}}</p>
-            </div>
-            <div class="note-body">
-                <p>{{note.descr}}</p>
-                <p>{{note.date}}</p>
-                <hr align="left" width="300" size="2" color ="#ff9900">
-            </div>
-        </div>
+        
         <!-- div #app -->
         </div>
       </section>
@@ -46,13 +35,15 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import message from '@/components/Message.vue'
+import newNote from '@/components/NewNote.vue'
+import notes from '@/components/Notes.vue'
 // @ - src
 
 export default { 
 
   components: {
     // message:message
-    message
+    message, newNote, notes
   },
 
   data() {
@@ -104,7 +95,7 @@ export default {
                         })
                         this.note.title = ''
                         this.note.descr = ''
-                        this.message = null
+                        this.message = ''
 
                 }
             }
