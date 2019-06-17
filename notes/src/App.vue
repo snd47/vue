@@ -12,16 +12,16 @@
           <!-- или упрощенно так -->
           <!-- <message  v-if="message" /> -->
           <!-- <message    :mes="hello I am props" /> -->
-          <message    :mes="message" />
+          <message  v-if="message"  :mes="message" />
 
-        <div class="message" v-if="message">
+        <!-- <div class="message" v-if="message">
             <p>{{message}}</p>
-        </div>
+        </div> -->
         <!-- new note -->
         <newNote :note="note" @addNote="addNote"/>
 
         <notes 
-          :notes="notes"
+          :notes="notes" @remove="removeNote"
         />
         <!-- note list -->
         
@@ -97,6 +97,9 @@ export default {
                         this.note.descr = ''
                         this.message = ''
 
+                },
+                removeNote(index) {
+                  this.notes.splice(index, 1)
                 }
             }
   
