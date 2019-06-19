@@ -3,10 +3,11 @@
         <label>Title
             <input v-model="note.title" type="text">
         </label>
-            <label>Description
+        <label>Description
+            
             <textarea v-model="note.descr"></textarea>
         </label>    
-            <br/><br/>
+            
             <button class="btn btnPrimary" @click="addNote">new note</button>
             <!-- <p>{{note.title}}</p> -->
         </div>
@@ -31,6 +32,6 @@ export default {
 <style lang="scss">
 .new-note {
     text-align:center;
- 
+    margin-bottom: 20px;
 }
 </style>

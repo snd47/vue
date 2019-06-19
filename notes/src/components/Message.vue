@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    props: {
+    props: { 
         mes: {
             type:[String, Number], 
             required: true
