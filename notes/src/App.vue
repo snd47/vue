@@ -25,6 +25,7 @@
           <h1>{{title}}</h1> 
 <!-- search -->
         <!-- <p>{{search}}</p> -->
+<p>{{priority[0]}}</p>
 
         <search 
           :value="search"
@@ -71,10 +72,12 @@ export default {
       title: 'Notes App',
       search: '',
       message: 0,
+      priority:['low','normal','high'],
       grid: true,
   
       note: {
           title:'',
+           priority: '',
           descr:''
          },
 
@@ -83,16 +86,19 @@ export default {
                         title: 'First Note',
                         descr: 'Description for first note',
                         date: new Date(Date.now()).toLocaleString(),
+                        priority: 'low'
                     },
                     {
                         title: 'Second Note',
                         descr: 'Description for second note',
                         date: new Date(Date.now()).toLocaleString(),
+                        priority: 'low'
                     },
                     {
                         title: 'Third Note',
                         descr: 'Description for third note',
                         date: new Date(Date.now()).toLocaleString(),
+                        priority: 'low'
                     }
                 ]
 
@@ -122,7 +128,7 @@ export default {
                     //     title:this.note.title,
                     //     descr:this.note.descr
                     // })
-                        let {title, descr} = this.note // destructuring
+                        let {title, priority, descr} = this.note // destructuring
 
                         if (title === '') {
                             this.message='title can`t be blank!'
@@ -130,13 +136,14 @@ export default {
                         }
                         this.notes.push({
                             title,      // title:title
+                            priority,                     
                             descr,                
                             date: new Date(Date.now()).toLocaleString()
                         })
                         this.note.title = ''
                         this.note.descr = ''
                         this.message = ''
-              
+                        this.priority = ''
 
                 },
                 removeNote(index) {

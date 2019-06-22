@@ -7,6 +7,7 @@
                 <p style="cursor: pointer;" @click="removeNote(index)">x</p>
             </div>
             <div class="note-body">
+                <p>{{note.priority}}</p>
                 <p>{{note.descr}}</p>
                 <p>{{note.date}}</p>
                 <hr align="left" width="300" size="2" color ="#ff9900">
@@ -39,6 +40,7 @@ export default {
 
 
 <style lang="scss">
+
 .notes {
     display: flex;
     align-items:center;

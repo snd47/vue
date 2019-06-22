@@ -4,14 +4,29 @@
             <input v-model="note.title" type="text">
         </label>
 
-    
+<!-- <label class="priority"> -->
+    <span>Priority</span>
+
+    <label class="priority">
+        <div>  
+            <input v-model="note.priority" type="radio"  name="priority" value ="low" checked="true" />
+            <span>low</span>
+        </div>
+        <div>  
+            <input v-model="note.priority" type="radio"  name="priority" value ="normal"/><span>normal</span>
+            
+        </div>
+        <div>  
+            <input v-model="note.priority" type="radio" name="priority" value ="high"/>
+            <span>high</span>
+        </div>
+    </label>
 <!-- </label> -->
         <label>Description   
             <textarea v-model="note.descr"></textarea>
         </label>   
 
-
-                    <button class="btn btnPrimary" @click="addNote">new note</button>
+         <button class="btn btnPrimary" @click="addNote">new note</button>
             <!-- <p>{{note.title}}</p> -->
         </div>
 </template>
@@ -33,10 +48,19 @@ export default {
 </script>
 
 <style lang="scss">
+
 .new-note {
     text-align:center;
     margin-bottom: 20px;
 }
 
-
+.priority {
+    display:flex;
+    justify-content: space-around;
+    margin: 0 0 20px 0;
+   
+       input { margin-bottom: 0;
+    }
+     
+}
 </style>
