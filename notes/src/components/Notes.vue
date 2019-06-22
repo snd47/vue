@@ -1,20 +1,23 @@
 <template>
 <!-- note list -->
     <div class="notes"> 
-        <div class="note" :class="{full:!grid}" v-for="(note, index) in notes" :key="index">
-            <div class="note-header">
-                <p>{{note.title}}</p>
-                <p style="cursor: pointer;" @click="removeNote(index)">x</p>
-            </div>
-            <div class="note-body">
-                <p>{{note.priority}}</p>
-                <p>{{note.descr}}</p>
-                <p>{{note.date}}</p>
-                <hr align="left" width="300" size="2" color ="#ff9900">
+        <div class="note" :class="{ full:!grid} " :id="note.priority"  v-for="(note, index) in notes" :key="index"  >         
+           
+                <div class="note-header">
+                    <p>{{note.title}}</p>
+                    <p style="cursor: pointer;" @click="removeNote(index)">x</p>
+                </div>
+               
+                <div class="note-body">
+                    <p><span>Priority: </span>{{note.priority}}</p>
+                    <p>{{note.descr}}</p>
+                    <p>{{note.date}}</p>
+                    <hr align="left" width="300" size="2" color ="#ff9900">
+                </div>
+            
             </div>
         </div>
-    </div>
-</template>
+   </template>
 
 <script>
 export default {
@@ -24,17 +27,20 @@ export default {
             required: true
         },
     
-    grid: {
-        type: Boolean,
+        grid: {
+            type: Boolean,
             required: true
         }
+    
+        
     },
     methods: {
-        removeNote(index) {
-            console.log(`Note id - ${index} removed`)
-            this.$emit('remove', index)
-        }
-    }
+            removeNote(index) {
+                console.log(`Note id - ${index} removed`)
+                this.$emit('remove', index)
+            }
+         
+         }
 }
 </script> 
 
@@ -57,7 +63,27 @@ export default {
     &.full {
         width: 100%;
     }
+    // &.normal {
+    //     background-color:lightgoldenrodyellow;
+    // }
+    // &.high {
+    //     background-color: lightcoral;
+    // }
 }
+
+
+#low {
+background-color: rgb(195, 241, 195);
+}
+
+#medium {
+    background-color:rgb(233, 231, 97);
+}
+
+#high {
+    background-color: rgb(250, 206, 206);
+}
+
 
 .note-header {
      display: flex;

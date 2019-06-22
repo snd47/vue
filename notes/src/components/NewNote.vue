@@ -6,10 +6,25 @@
 
 <!-- <label class="priority"> -->
     <span>Priority</span>
+    <div class="priority" id="priority"> 
+      <div v-for="(priority,index) in ['low', 'medium', 'high']" :key="index" :id= "index" >   
+            <input  
+            type="radio"  
+            name="priority" 
+            :id="priority" 
+            :value ="priority" 
+            v-model="note.priority"  
+                   
+            >
+            {{ priority }}
+            
+        </div>
+        </div>
 
-    <label class="priority">
+        
+    <!-- <label class="priority">
         <div>  
-            <input v-model="note.priority" type="radio"  name="priority" value ="low" checked="true" />
+            <input v-model="note.priority"  @click="grid=true" type="radio"  name="priority"  value ="low" checked="true" />
             <span>low</span>
         </div>
         <div>  
@@ -20,7 +35,7 @@
             <input v-model="note.priority" type="radio" name="priority" value ="high"/>
             <span>high</span>
         </div>
-    </label>
+    </label> -->
 <!-- </label> -->
         <label>Description   
             <textarea v-model="note.descr"></textarea>
@@ -42,9 +57,13 @@ export default {
     methods: {
         addNote() {
             this.$emit('addNote', this.note)
-        }
+        } 
+
+       
+	}
+       
     }
-}
+
 </script>
 
 <style lang="scss">

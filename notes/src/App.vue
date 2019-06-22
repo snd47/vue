@@ -25,7 +25,8 @@
           <h1>{{title}}</h1> 
 <!-- search -->
         <!-- <p>{{search}}</p> -->
-<p>{{priority[0]}}</p>
+<!-- <p>{{priority[0]}}</p> -->
+
 
         <search 
           :value="search"
@@ -72,13 +73,14 @@ export default {
       title: 'Notes App',
       search: '',
       message: 0,
-      priority:['low','normal','high'],
+      priority:'low',
       grid: true,
-  
+
       note: {
           title:'',
-           priority: '',
+           priority: 'low',
           descr:''
+          
          },
 
      notes: [
@@ -134,6 +136,7 @@ export default {
                             this.message='title can`t be blank!'
                             return false
                         }
+                        
                         this.notes.push({
                             title,      // title:title
                             priority,                     
@@ -146,9 +149,13 @@ export default {
                         this.priority = ''
 
                 },
+                // foo() {
+                //        on:input=$emit('input', $event.target.value);
+                // },
                 removeNote(index) {
                   this.notes .splice(index, 1)
                 }
+            
             }
   
 }
