@@ -20,10 +20,11 @@
         <!-- new note -->
         <newNote :note="note" @addNote="addNote"/>
 
-        <div class="note-header">
+<!-- note Title -->
+        <div class="note-header" style="margin: 30px 0">
           <h1>{{title}}</h1> 
 <!-- search -->
-        <p>{{search}}</p>
+        <!-- <p>{{search}}</p> -->
 
         <search 
           :value="search"
@@ -40,7 +41,7 @@
           </div>
         </div>
 
-        <notes :notes="notes" :grid="grid" @remove="removeNote"/>
+        <notes :notes="notesFilter" :grid="grid" @remove="removeNote"/>
         <!-- note list -->
         
         <!-- div #app -->
@@ -71,6 +72,7 @@ export default {
       search: '',
       message: 0,
       grid: true,
+  
       note: {
           title:'',
           descr:''
@@ -80,20 +82,37 @@ export default {
                     {
                         title: 'First Note',
                         descr: 'Description for first note',
-                        date: new Date(Date.now()).toLocaleString()
+                        date: new Date(Date.now()).toLocaleString(),
                     },
                     {
                         title: 'Second Note',
                         descr: 'Description for second note',
-                        date: new Date(Date.now()).toLocaleString()
+                        date: new Date(Date.now()).toLocaleString(),
                     },
                     {
                         title: 'Third Note',
                         descr: 'Description for third note',
-                        date: new Date(Date.now()).toLocaleString()
+                        date: new Date(Date.now()).toLocaleString(),
                     }
                 ]
 
+      }
+    },
+    computed: {
+      notesFilter() {
+        let array = this.notes,
+          search = this.search
+          if(!search) return array
+          //small
+          search = search.trim().toLowerCase()
+          // Filter
+          array = array.filter(function(item) {
+            if (item.title.toLowerCase().indexOf(search) !== -1) {
+              return item
+            }
+        })
+        // Error
+        return array
       }
     },
     methods: {
@@ -110,13 +129,14 @@ export default {
                             return false
                         }
                         this.notes.push({
-                            title,                      // title:title
-                            descr,
+                            title,      // title:title
+                            descr,                
                             date: new Date(Date.now()).toLocaleString()
                         })
                         this.note.title = ''
                         this.note.descr = ''
                         this.message = ''
+              
 
                 },
                 removeNote(index) {

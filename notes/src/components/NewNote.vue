@@ -3,12 +3,15 @@
         <label>Title
             <input v-model="note.title" type="text">
         </label>
-        <label>Description
-            
+
+    
+<!-- </label> -->
+        <label>Description   
             <textarea v-model="note.descr"></textarea>
-        </label>    
-            
-            <button class="btn btnPrimary" @click="addNote">new note</button>
+        </label>   
+
+
+                    <button class="btn btnPrimary" @click="addNote">new note</button>
             <!-- <p>{{note.title}}</p> -->
         </div>
 </template>
@@ -19,7 +22,7 @@ export default {
         note:{
             type:Object,
             required:true
-        }
+        } 
     },
     methods: {
         addNote() {
@@ -34,4 +37,6 @@ export default {
     text-align:center;
     margin-bottom: 20px;
 }
+
+
 </style>
