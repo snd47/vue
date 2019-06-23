@@ -22,6 +22,7 @@
 
 <!-- note Title -->
         <div class="note-header" style="margin: 30px 0">
+          <editable />
           <h1>{{title}}</h1> 
 <!-- search -->
         <!-- <p>{{search}}</p> -->
@@ -59,6 +60,7 @@ import message from '@/components/Message.vue'
 import newNote from '@/components/NewNote.vue'
 import notes from '@/components/Notes.vue'
 import search from '@/components/Search.vue'
+
 // @ - src
 
 export default { 
@@ -149,9 +151,7 @@ export default {
                         this.priority = ''
 
                 },
-                // foo() {
-                //        on:input=$emit('input', $event.target.value);
-                // },
+
                 removeNote(index) {
                   this.notes .splice(index, 1)
                 }

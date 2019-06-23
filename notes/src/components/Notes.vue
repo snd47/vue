@@ -4,7 +4,20 @@
         <div class="note" :class="{ full:!grid}" :id="note.priority"  v-for="(note, index) in notes" :key="index"  >         
            
                 <div class="note-header"  :class="{ full:!grid}">
-                    <p>{{note.title}}</p>
+
+<input type="text"
+           v-if="edit"
+           :value="valueLocal"
+           @blur.native="valueLocal = $event.target.value; edit = false; $emit('input', valueLocal);"
+           @keyup.enter.native="valueLocal = $event.target.value; edit = false; $emit('input', valueLocal);"
+           v-focus=""
+             />
+
+
+                    <p v-else="" @click="edit = true;">
+                        <!-- {{note.title}} -->
+                        {{valueLocal = note.title}}
+                    </p>
                     
                     <p style="cursor: pointer;" @click="removeNote(index)">x</p>
                 </div>
@@ -22,7 +35,11 @@
 
 <script>
 export default {
-    props: {
+    props:  {
+       value: {
+           type: String,
+            required: true
+       },
         notes: {
             type: Array,
             required: true
@@ -35,6 +52,24 @@ export default {
     
         
     },
+    data () {
+        return {
+            edit: false,
+            valueLocal: this.value
+            }
+    },
+    watch: {
+    value: function() {
+      this.valueLocal = this.value;
+    }
+  },
+   directives: {
+    focus: {
+      inserted (el) {
+        el.focus()
+      }
+    }
+  },
     methods: {
             removeNote(index) {
                 console.log(`Note id - ${index} removed`)
@@ -42,6 +77,7 @@ export default {
             }
          
          }
+         
 }
 </script> 
 
