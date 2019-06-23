@@ -5,19 +5,20 @@
         </label>
 
 <!-- <label class="priority"> -->
-    <span>Priority</span>
+    
     <div class="priority" id="priority"> 
-      <div v-for="(priority,index) in ['low', 'medium', 'high']" :key="index" :id= "index" >   
+        <div>Priority</div>
+        <div v-for="(priority,index) in ['low', 'medium', 'high']" :key="index" :id= "index" >  
+          <label> {{ priority }}
             <input  
             type="radio"  
             name="priority" 
             :id="priority" 
             :value ="priority" 
             v-model="note.priority"  
-                   
-            >
-            {{ priority }}
+             >
             
+             </label>
         </div>
         </div>
 
@@ -57,9 +58,7 @@ export default {
     methods: {
         addNote() {
             this.$emit('addNote', this.note)
-        } 
-
-       
+        }     
 	}
        
     }
@@ -75,11 +74,14 @@ export default {
 
 .priority {
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0 0 20px 0;
    
        input { margin-bottom: 0;
     }
-     
+ #priority{
+     display: flex;
+     justify-content: space-between;
+ }    
 }
 </style>

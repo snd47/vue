@@ -1,11 +1,27 @@
 <template>
+
 <!-- note list -->
     <div class="notes"> 
         <div class="note" :class="{ full:!grid}" :id="note.priority"  v-for="(note, index) in notes" :key="index"  >         
            
                 <div class="note-header"  :class="{ full:!grid}">
-                    <p>{{note.title}}</p>
                     
+<!-- https://jsfiddle.net/enL5tjs0/ -->
+         
+         
+         <input 
+         v-if="note.editing"         
+         v-model="note.title" 
+         v-focus
+         @blur="note.editing=false" 
+         @keyup.enter.prevent="forceRerender(); note.editing=false"
+         @keydown.esc="note.editing=false; note.title  = notes.oldTitle"
+         :key="compKey"
+         >    
+          <p v-else :key="compKey"  @click="forceRerender(); note.editing=true; notes.oldTitle = note.title "  >
+
+                        {{ note.title }}
+                   </p>        
                     <p style="cursor: pointer;" @click="removeNote(index)">x</p>
                 </div>
                
@@ -18,11 +34,12 @@
             
             </div>
         </div>
+        
    </template>
 
 <script>
 export default {
-    props: {
+    props:  {
         notes: {
             type: Array,
             required: true
@@ -32,22 +49,41 @@ export default {
             type: Boolean,
             required: true
         }
-    
-        
+       
     },
+    
+     directives: {
+            focus: {
+                inserted (el) {
+                el.focus()
+            }
+        }
+  },
+data() {
+    return {
+      compKey: 0,
+    };
+  },
     methods: {
+ 
             removeNote(index) {
+                 console.log(this.$refs);
                 console.log(`Note id - ${index} removed`)
                 this.$emit('remove', index)
+            },
+
+            // https://michaelnthiessen.com/force-re-render
+             forceRerender() {
+                this.compKey += 1;  
             }
          
          }
+         
 }
 </script> 
 
 
 <style lang="scss">
-
 .notes {
     display: flex;
     align-items:center;
@@ -55,7 +91,6 @@ export default {
     flex-wrap:wrap;
     padding: 40px 0;
 }
-
 .note {
     width: 48%;
     padding: 18px 20px;
@@ -78,30 +113,21 @@ export default {
     // &.high {
     //     background-color: lightcoral;
     // }
-
     
 }
-
-
-
 #low {
 background-color: rgb(195, 241, 195);
 }
-
 #medium {
     background-color:rgb(233, 231, 97);
 }
-
 #high {
     background-color: rgb(250, 206, 206);
 }
-
-
 .note-header {
      display: flex;
     align-items:center;
     justify-content: space-between;
-
     h1 {
         font-size: 32px;
     }
@@ -112,9 +138,7 @@ background-color: rgb(195, 241, 195);
         color:#402caf;
     
         font-size: 22px;
-
     }
-
     svg {
         margin-right:12px;
         color:#999999;
@@ -125,7 +149,6 @@ background-color: rgb(195, 241, 195);
             margin-right: 0;
         }
     }
-
     &.full {
         justify-content: center;
         p {
@@ -136,14 +159,11 @@ background-color: rgb(195, 241, 195);
         }
     }
 }
-
-
 .note-body {
     
     
     p {
         margin: 10px 0;
-
     }
 }
 </style>

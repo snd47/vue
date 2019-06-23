@@ -22,6 +22,7 @@
 
 <!-- note Title -->
         <div class="note-header" style="margin: 30px 0">
+          
           <h1>{{title}}</h1> 
 <!-- search -->
         <!-- <p>{{search}}</p> -->
@@ -43,7 +44,7 @@
           </div>
         </div>
 
-        <notes :notes="notesFilter" :grid="grid" @remove="removeNote"/>
+        <notes :notes="notesFilter" :grid="grid" @remove="removeNote" />
         <!-- note list -->
         
         <!-- div #app -->
@@ -59,6 +60,7 @@ import message from '@/components/Message.vue'
 import newNote from '@/components/NewNote.vue'
 import notes from '@/components/Notes.vue'
 import search from '@/components/Search.vue'
+
 // @ - src
 
 export default { 
@@ -75,12 +77,13 @@ export default {
       message: 0,
       priority:'low',
       grid: true,
+  
 
       note: {
           title:'',
            priority: 'low',
-          descr:''
-          
+          descr:'' ,
+          oldTitle: ''
          },
 
      notes: [
@@ -88,19 +91,22 @@ export default {
                         title: 'First Note',
                         descr: 'Description for first note',
                         date: new Date(Date.now()).toLocaleString(),
-                        priority: 'low'
+                        priority: 'low',
+                        oldTitle: ''
                     },
                     {
                         title: 'Second Note',
                         descr: 'Description for second note',
                         date: new Date(Date.now()).toLocaleString(),
-                        priority: 'low'
+                        priority: 'low',
+                        oldTitle: ''
                     },
                     {
                         title: 'Third Note',
                         descr: 'Description for third note',
                         date: new Date(Date.now()).toLocaleString(),
-                        priority: 'low'
+                        priority: 'low',
+                        oldTitle: ''
                     }
                 ]
 
@@ -125,6 +131,7 @@ export default {
     },
     methods: {
                 addNote() {
+                   
                     // console.log(this.note)
                     // this.notes.push({
                     //     title:this.note.title,
@@ -147,15 +154,16 @@ export default {
                         this.note.descr = ''
                         this.message = ''
                         this.priority = ''
+                        
 
                 },
-                // foo() {
-                //        on:input=$emit('input', $event.target.value);
-                // },
+             
                 removeNote(index) {
-                  this.notes .splice(index, 1)
-                }
-            
+                  this.notes.splice(index, 1)
+                },
+                 
+
+               
             }
   
 }
