@@ -1,5 +1,6 @@
 <template>
   <div class="modal__wrapper" @click="$emit('close')">
+                                <!-- stop click on modal area -->
     <div class="modal-content" @click.stop="">
 
       <!-- header -->
@@ -11,7 +12,16 @@
       <!-- body -->
       <div class="modal-body">
 
+        <slot name="body">Default body</slot>
+
       </div>
+
+
+      <div class="modal-footer">
+        <slot name="footer">default footer</slot>
+        <!-- {{floor}} -->
+      </div>
+
      </div>
   </div>
 </template>
@@ -20,6 +30,10 @@
 export default {
   props: {
     title: {
+      type: String,
+      required: true
+    },
+    floor: {
       type: String,
       required: true
     }

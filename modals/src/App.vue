@@ -7,10 +7,22 @@
           <button class="btn btnPrimary" @click="modalFirst= !modalFirst">Show first modal</button>
           <!-- first modal -->
           <modals 
-          title="First modal"
-          v-if="modalFirst"
-          @close="modalFirst= !modalFirst"
+            title="First mod"
+            floor="2019"
+            v-if="modalFirst"
+            @close="modalFirst= !modalFirst"
           >
+            <!-- use <form> <ul> or other tag with slot name-->
+            <div slot="body">
+                  <p>Text Text Text</p>
+                  <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Well Done!</button>
+            </div>
+
+            <div slot="footer">
+                  <p>real footer</p>
+            </div>
+
+
 
           </modals>
         </div>
