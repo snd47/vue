@@ -1,4 +1,6 @@
 <template>
+ <transition name="modal">
+   <!-- <transition-group> - for mane elements -->
   <div class="modal__wrapper" @click="$emit('close')">
                                 <!-- stop click on modal area -->
     <div class="modal-content" @click.stop="">
@@ -24,6 +26,7 @@
 
      </div>
   </div>
+ </transition>
 </template>
 
 <script>
@@ -50,6 +53,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+//animation
+.modal-enter, .modal-leave-active {
+  opacity:0;
+  background-color: antiquewhite;
+}
+
+.modal-enter .modal-content, 
+.modal-leave-active .modal-content {
+transform:scale(1.2);
+}
 
 .modal__wrapper{
   display: flex;

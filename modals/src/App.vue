@@ -6,10 +6,12 @@
         <div class="container">
           <button class="btn btnPrimary" @click="modalFirst= !modalFirst">Show first modal</button>
           <!-- first modal -->
+            <!-- v-if="modalFirst" - doesn't work with animation, remove element from DOM-->
           <modals 
             title="First mod"
             floor="2019"
-            v-if="modalFirst"
+            
+            v-show="modalFirst"
             @close="modalFirst= !modalFirst"
           >
             <!-- use <form> <ul> or other tag with slot name-->
