@@ -1,5 +1,5 @@
 <template>
- <transition name="modal">
+ <transition name="modal" enter-active-class="animated pulse">
    <!-- <transition-group> - for mane elements -->
   <div class="modal__wrapper" @click="$emit('close')">
                                 <!-- stop click on modal area -->
