@@ -12,7 +12,7 @@
             floor="2019"
             
             v-show="modalFirst"
-            @close="modalFirst= !modalFirst"
+            @close="modalFirst= false"
           >
             <!-- use <form> <ul> or other tag with slot name-->
             <div slot="body">
@@ -24,9 +24,37 @@
                   <p>real footer</p>
             </div>
 
+          </modals>
 
+          <button class="btn btnPrimary" @click="modalSecond.show= !modalSecond.show">Show modal with form</button>
+          <!-- second modal -->
+            <!-- v-if="modalFirst" - doesn't work with animation, remove element from DOM--> 
+          <modals 
+            title="Modal with form"
+            v-show="modalSecond.show"
+            @close="modalSecond.show= false"
+          >
+            <!-- use <form> <ul> or other tag with slot name-->
+            <div slot="body">
+                  <form @submit.prevent="submitSecondForm">
+                    <label>Name:
+                      <input type="text" required v-model="modalSecond.name">
+                    </label>
+                    <label>Email:
+                      <input type="email" required v-model="modalSecond.email">
+                    </label>
+                    <button class="btn btnPrimary">Submit</button>
+                  </form>
+    
+            </div>
+
+            <div slot="footer">
+                  <p>real footer</p>
+            </div>
 
           </modals>
+
+
         </div>
       </section>
 
@@ -40,13 +68,29 @@
 import modals from '@/components/Modal.vue'
 
 export default { 
-  name: 'modals app',
+  // name: 'modals app',
   components: {
     modals
   },
   data() {
     return {
-      modalFirst:false
+      modalFirst:false,
+      modalSecond: {
+        show: false,
+        name: '',
+        email:''
+      }
+    }
+  },
+  methods: {
+    submitSecondForm() {
+      console.log({
+        name:this.modalSecond.name,
+        email:this.modalSecond.email
+      });
+      this.modalSecond.name=''
+      this.modalSecond.email=''
+      this.modalSecond.show=false
     }
   }
 }

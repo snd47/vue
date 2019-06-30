@@ -23,7 +23,7 @@
         <slot name="footer">default footer</slot>
         <!-- {{floor}} -->
       </div>
-
+ 
      </div>
   </div>
  </transition>
@@ -38,7 +38,7 @@ export default {
     },
     floor: {
       type: String,
-      required: true
+      required: false
     }
   },
 
