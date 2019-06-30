@@ -53,7 +53,9 @@
             </div>
 
           </modals>
-
+<!-- modal with validate -->
+          <button class="btn btnPrimary" @click="modalValidate= !modalValidate">Show modal with form + validate</button>
+          <modalValidate v-show="modalValidate" @close="modalValidate=false" />
 
         </div>
       </section>
@@ -65,12 +67,13 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 
-import modals from '@/components/Modal.vue'
+import modals from '@/components/UI/Modal.vue'
+import modalValidate from '@/components/ModalValidate.vue'
 
 export default { 
   // name: 'modals app',
   components: {
-    modals
+    modals, modalValidate
   },
   data() {
     return {
@@ -79,7 +82,8 @@ export default {
         show: false,
         name: '',
         email:''
-      }
+      },
+      modalValidate:false
     }
   },
   methods: {
