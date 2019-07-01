@@ -5,7 +5,7 @@
           >
             <!-- use <form> <ul> or other tag with slot name-->
             <div slot="body">
-                  <form @submit.prevent="">
+                  <form @submit.prevent="onSubmit">
 
                     <div class="form-item" :class="{ errorInput: $v.name.$error }">
                         <label>Name:</label>
@@ -37,7 +37,8 @@
             </div>
 
             <div slot="footer">
-                  <p>real footer</p>
+                  <!-- <p>real footer</p> -->
+            <!-- if delete that div - "default footer" will appear -->
             </div>
 
           </modal>
@@ -67,6 +68,18 @@ export default {
     email: {
       required,
       email
+    }
+  },
+  methods: {
+    onSubmit () {
+      this.$v.$touch()
+      if (!this.$v.$invalid) {
+        const user = {
+          name: this.name,
+          email: this.email
+        }
+        console.log(user)
+      }
     }
   }
 }
