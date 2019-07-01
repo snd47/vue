@@ -20,7 +20,7 @@
 
                     
                     <label>Email:
-                      <input  v-modal="email" >
+                      <input  v-model="email" >
                     </label>
                     <!-- <div>{{email}}</div> -->
                     
