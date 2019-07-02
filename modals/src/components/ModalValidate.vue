@@ -28,6 +28,30 @@
                            @change="$v.email.$touch()"
                            >
                      </div>
+                        <!-- password -->
+                     <div class="form-item" :class="{ errorInput: $v.password.$error }">
+                        <label>Password:</label>
+                          <p class="errorText" v-if="!$v.password.required">Filed is required!</p>
+                          <p class="errorText" v-if="!$v.password.minLength">Password must have at least {{ $v.password.$params.minLength.min }} letters.</p>
+                          <input 
+                           v-model="password"
+                           :class="{ error: $v.password.$error }"
+                           @change="$v.password.$touch()"
+                           type="password"
+                           >
+                     </div>
+
+                     <div class="form-item" :class="{ errorInput: $v.repeatPassword.$error }">
+                        <label>Password again:</label>
+                          <p class="errorText" v-if="!$v.repeatPassword.sameAsPassword">Passwords must be identical.</p>
+                          
+                          <input 
+                           v-model="repeatPassword"
+                           :class="{ error: $v.repeatPassword.$error }"
+                           @change="$v.repeatPassword.$touch()"
+                           type="password"
+                           >
+                     </div>
 
                     <!-- <div>{{email}}</div> -->
                     
@@ -45,7 +69,7 @@
 </template>
 
 <script>
-import { required, minLength, email } from 'vuelidate/lib/validators'
+import { required, minLength, email, sameAs } from 'vuelidate/lib/validators'
 
 import modal from '@/components/UI/Modal.vue'
 
@@ -57,18 +81,27 @@ export default {
     data() {
         return {
             name:'',
-            email: ''
+            email: '',
+            password: '',
+            repeatPassword: ''
         }
     },
     validations: {
-    name: {
-      required,
-      minLength: minLength(4)
-    },
-    email: {
-      required,
-      email
-    }
+        name: {
+          required,
+          minLength: minLength(4)
+        },
+        email: {
+          required,
+          email
+        },
+        password: {
+          required,
+          minLength:minLength(4)
+        },
+        repeatPassword: {
+          sameAsPassword: sameAs('password')
+        }
   },
   methods: {
     onSubmit () {
@@ -76,7 +109,9 @@ export default {
       if (!this.$v.$invalid) {
         const user = {
           name: this.name,
-          email: this.email
+          email: this.email,
+          password: this.password,
+          repeatPassword: this.repeatPassword
         }
         console.log(user)
         //Done
@@ -86,6 +121,8 @@ export default {
     onClose() {
       this.name=''
       this.email=''
+      this.password=''
+      this.repeatPassword=''
       this.$v.$reset() 
       this.$emit('close')
       

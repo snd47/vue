@@ -3,26 +3,25 @@
     <div class="wrapper-content">
 
       <section>
-        <div class="container">
+        <div class="container main">
           <button class="btn btnPrimary" @click="modalFirst= !modalFirst">Show first modal</button>
           <!-- first modal -->
             <!-- v-if="modalFirst" - doesn't work with animation, remove element from DOM-->
           <modals 
             title="First mod"
-            floor="2019"
-            
+            floor="2019"           
             v-show="modalFirst"
             @close="modalFirst= false"
           >
             <!-- use <form> <ul> or other tag with slot name-->
-            <div slot="body">
-                  <p>Text Text Text</p>
-                  <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Well Done!</button>
-            </div>
+                <div slot="body">
+                      <p>Text Text Text</p>
+                      <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Well Done!</button>
+                </div>
 
-            <div slot="footer">
-                  <p>real footer</p>
-            </div>
+                <div slot="footer">
+                      <p>real footer</p>
+                </div>
 
           </modals>
 
@@ -88,6 +87,18 @@ export default {
       modalValidate:false
     }
   },
+  //  validations: {
+  //    modalSecond: {
+  //       name: {
+  //         required,
+  //         minLength: minLength(4)
+  //       },
+  //       email: {
+  //         required,
+  //         email
+  //       }
+  //    }
+  // },
   methods: {
     submitSecondForm() {
       console.log({
@@ -101,12 +112,13 @@ export default {
       this.modalSecond.email=''
       this.modalSecond.show=false
       // this.$v.$reset() 
+      
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -114,5 +126,18 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.main {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+      background-color: rgba(10, 87, 110, 0.404) !important;
+      border: rgba(10, 87, 110, 0.404) !important;
+      width: 30%;
+      margin: 0 0 30px 0;
+
+    }
 }
 </style>
