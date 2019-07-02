@@ -32,7 +32,7 @@
           <modals 
             title="Modal with form"
             v-show="modalSecond.show"
-            @close="modalSecond.show= false"
+            @close="onCloseSecondForm"
           >
             <!-- use <form> <ul> or other tag with slot name-->
             <div slot="body">
@@ -70,6 +70,8 @@
 import modals from '@/components/UI/Modal.vue'
 import modalValidate from '@/components/ModalValidate.vue'
 
+// import { required, minLength, email } from 'vuelidate/lib/validators'
+
 export default { 
   // name: 'modals app',
   components: {
@@ -92,9 +94,13 @@ export default {
         name:this.modalSecond.name,
         email:this.modalSecond.email
       });
+      this.onCloseSecondForm()
+    },
+    onCloseSecondForm() {
       this.modalSecond.name=''
       this.modalSecond.email=''
       this.modalSecond.show=false
+      // this.$v.$reset() 
     }
   }
 }

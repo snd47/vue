@@ -1,7 +1,7 @@
 <template>
      <modal 
             title="Modal with form + Validate"
-            @close="$emit('close')"
+            @close="onClose"
           >
             <!-- use <form> <ul> or other tag with slot name-->
             <div slot="body">
@@ -80,11 +80,15 @@ export default {
         }
         console.log(user)
         //Done
-        this.name=''
-        this.email=''
-        this.$v.$reset()
-        this.$emit('close')
+        this.onClose()
       }
+    },
+    onClose() {
+      this.name=''
+      this.email=''
+      this.$v.$reset() 
+      this.$emit('close')
+      
     }
   }
 }
