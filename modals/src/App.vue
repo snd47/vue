@@ -3,6 +3,20 @@
     <div class="wrapper-content">
 
       <section>
+
+        <header>
+          <div class="header-title">
+            <h2><strong>Modal app</strong></h2>
+          </div>
+          <div class="reg-login">
+            <button class="btn btnPrimary" @click="modalRegistration= !modalRegistration">Registration</button>
+            <modalRegistration v-show="modalRegistration" @close="modalRegistration=false" />
+
+            <button class="btn btnPrimary" @click="modalLogin= !modalLogin">Login</button>
+            <modalLogin v-show="modalLogin" @close="modalLogin=false" />
+          </div>
+        </header>
+
         <div class="container main">
           <button class="btn btnPrimary" @click="modalFirst= !modalFirst">Show first modal</button>
           <!-- first modal -->
@@ -56,6 +70,8 @@
           <button class="btn btnPrimary" @click="modalValidate= !modalValidate">Show modal with form + validate</button>
           <modalValidate v-show="modalValidate" @close="modalValidate=false" />
 
+          
+
         </div>
       </section>
 
@@ -68,12 +84,15 @@
 import modals from '@/components/UI/Modal.vue'
 import modalValidate from '@/components/ModalValidate.vue'
 
+import modalRegistration from '@/components/ModalRegistration.vue'
+import modalLogin from '@/components/ModalLogin.vue'
+
 // import { required, minLength, email } from 'vuelidate/lib/validators'
 
 export default { 
   // name: 'modals app',
   components: {
-    modals, modalValidate
+    modals, modalValidate, modalRegistration, modalLogin
   },
   data() {
     return {
@@ -83,7 +102,9 @@ export default {
         name: '',
         email:''
       },
-      modalValidate:false
+      modalValidate:false,
+      modalRegistration:false,
+      modalLogin:false
     }
   },
   //  validations: {
@@ -126,9 +147,34 @@ export default {
     button {
       background-color: rgba(10, 87, 110, 0.404) !important;
       border: rgba(10, 87, 110, 0.404) !important;
-      width: 30%;
+      width: 33%;
       margin: 0 0 30px 0;
 
     }
 }
+
+header {
+  // width: 1080px;
+ 
+  display:flex;
+  justify-content: space-around;
+  h2 {
+    color: rgba(41, 30, 2, 0.89);
+
+
+  }
+}
+
+.reg-login {
+  display:flex;
+  justify-content: flex-end;
+}
+
+.reg-login>button {
+      background-color: transparent !important;
+      border:none !important;
+      color:rgba(41, 30, 2, 0.89)!important;
+    margin: 0 0 30px 10px;
+  }
+
 </style>
