@@ -118,13 +118,13 @@ export default {
 <style lang="scss">
 
 
-    button {
-      background-color: rgba(10, 87, 110, 0.404) !important;
-      border: rgba(10, 87, 110, 0.404) !important;
-      // width: 30%;
-      // margin: 0 0 30px 0;
+    // button {
+    //   background-color: rgba(10, 87, 110, 0.404) !important;
+    //   border: rgba(10, 87, 110, 0.404) !important;
+    //   // width: 30%;
+    //   // margin: 0 0 30px 0;
 
-    }
+    // }
 
 
 .form-item .errorText {

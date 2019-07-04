@@ -146,10 +146,10 @@ export default {
     align-items: center;
     button {
       background-color: rgba(10, 87, 110, 0.404) !important;
-      border: rgba(10, 87, 110, 0.404) !important;
-      width: 33%;
+       border: 1px solid rgba(10, 87, 110, 0.404) !important;
+    
       margin: 0 0 30px 0;
-
+      color:brown
     }
 }
 
@@ -171,8 +171,9 @@ header {
 }
 
 .reg-login>button {
+   
       background-color: transparent !important;
-      border:none !important;
+      
       color:rgba(41, 30, 2, 0.89)!important;
     margin: 0 0 30px 10px;
   }
