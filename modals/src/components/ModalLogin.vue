@@ -4,7 +4,7 @@
             @close="onClose"
           >
             <!-- use <form> <ul> or other tag with slot name-->
-            <div slot="body">
+            <div slot="body" class="modal-login-body">
                   <form @submit.prevent="onSubmit">
 
                     <!-- <h1>Login modal</h1> -->
@@ -34,13 +34,13 @@
                      <!-- <div>{{email}}</div> -->
                     
                     <button class="btn btnPrimary">Submit</button>
+                    
                   </form>
     
             </div>
 
-            <div slot="footer">
-                  <!-- <p>real footer</p> -->
-            <!-- if delete that div - "default footer" will appear -->
+            <div slot="footer" class="modal-login-footer">
+              <button @click="onRedirect">Мне нужен аккаунт</button>
             </div>
 
           </modal>
@@ -48,6 +48,7 @@
 
 <script>
 import { required, minLength, email, sameAs } from 'vuelidate/lib/validators'
+
 
 import modal from '@/components/UI/Modal.vue'
 
@@ -95,6 +96,10 @@ export default {
       this.$v.$reset() 
       this.$emit('close')
       
+    },
+    onRedirect() {
+      this.onClose()
+      this.$emit('redirect')
     }
   }
 }
@@ -117,6 +122,27 @@ export default {
 
 input.error {
   border-color: rgb(190, 91, 91)
+}
+
+.modal-login-body {
+  button {
+    margin-bottom:10px;
+  }
+}
+.modal-login-footer {
+  font-size: 14px;
+  text-align:center;
+  // text-decoration:underline;
+  
+  margin: 10px;
+  // background-color:wheat;
+  button {
+    background-color:transparent;
+    border:none;
+    border-bottom: 2px dotted blue;
+    cursor: pointer;
+    padding:0;
+  }
 }
 
 </style>

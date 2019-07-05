@@ -18,10 +18,10 @@
 
       </div>
 
-
+    <!-- creating slot with name here -->
       <div class="modal-footer">
         <slot name="footer">default footer</slot>
-        <!-- {{floor}} -->
+     
       </div>
  
      </div>

@@ -6,14 +6,14 @@
 
         <header>
           <div class="header-title">
-            <h2><strong>Modal app</strong></h2>
+            <h2><strong><a href="">Modal app</a></strong></h2>
           </div>
           <div class="reg-login">
             <button class="btn btnPrimary" @click="modalRegistration= !modalRegistration">Registration</button>
             <modalRegistration v-show="modalRegistration" @close="modalRegistration=false" />
 
             <button class="btn btnPrimary" @click="modalLogin= !modalLogin">Login</button>
-            <modalLogin v-show="modalLogin" @close="modalLogin=false" />
+            <modalLogin v-show="modalLogin" @close="modalLogin=false" @redirect="modalRegistration= !modalRegistration" />
           </div>
         </header>
 
@@ -34,7 +34,7 @@
                 </div>
 
                 <div slot="footer">
-                      <p>real footer</p>
+                      <p>new div slot footer</p>
                 </div>
 
           </modals>
@@ -61,9 +61,9 @@
     
             </div>
 
-            <div slot="footer">
+            <!-- <div slot="footer">
                   <p>real footer</p>
-            </div>
+            </div> -->
 
           </modals>
 <!-- modal with validate -->
@@ -146,7 +146,7 @@ export default {
     align-items: center;
     button {
       background-color: rgba(10, 87, 110, 0.404) !important;
-       border: 1px solid rgba(10, 87, 110, 0.404) !important;
+       border:  rgba(10, 87, 110, 0.404) !important;
     
       margin: 0 0 30px 0;
       color:brown
