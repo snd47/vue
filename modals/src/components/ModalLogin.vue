@@ -99,7 +99,7 @@ export default {
     },
     onRedirect() {
       this.onClose()
-      this.$emit('redirect')
+      this.$emit('redirect_registration')
     }
   }
 }

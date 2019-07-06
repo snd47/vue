@@ -10,10 +10,10 @@
           </div>
           <div class="reg-login">
             <button class="btn btnPrimary" @click="authModal.registration= !authModal.registration">Registration</button>
-            <modalRegistration v-show="authModal.registration" @close="authModal.registration=false" />
+            <modalRegistration v-show="authModal.registration" @close="authModal.registration=false" @redirect_login="authModal.login= !authModal.login" />
 
             <button class="btn btnPrimary" @click="authModal.login= !authModal.login">Login</button>
-            <modalLogin v-show="authModal.login" @close="authModal.login=false" @redirect="authModal.registration= !authModal.registration" />
+            <modalLogin v-show="authModal.login" @close="authModal.login=false" @redirect_registration="authModal.registration= !authModal.registration" />
           </div>
         </header>
 
@@ -104,11 +104,11 @@ export default {
       },
       modalValidate:false,
       authModal: {
-        login: false,
-        registration: false
+        registration: false,
+        login: false
       },
-      modalRegistration:false,
-      modalLogin:false
+      // modalRegistration:false,
+      // modalLogin:false
     }
   },
   //  validations: {

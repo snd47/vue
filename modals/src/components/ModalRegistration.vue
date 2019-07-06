@@ -4,7 +4,7 @@
             @close="onClose"
           >
             <!-- use <form> <ul> or other tag with slot name-->
-            <div slot="body">
+            <div slot="body" class="modal-login-body">
                   <form @submit.prevent="onSubmit">
 
                     
@@ -50,9 +50,10 @@
     
             </div>
 
-            <div slot="footer">
+            <div slot="footer" class="modal-login-footer">
                   <!-- <p>real footer</p> -->
             <!-- if delete that div - "default footer" will appear -->
+              <button @click="onRedirect">У меня есть аккаунт, войти</button>
             </div>
 
           </modal>
@@ -110,6 +111,10 @@ export default {
       this.$v.$reset() 
       this.$emit('close')
       
+    },
+    onRedirect() {
+      this.onClose()
+      this.$emit('redirect_login')
     }
   }
 }
@@ -142,6 +147,27 @@ export default {
 
 input.error {
   border-color: rgb(190, 91, 91)
+}
+
+.modal-login-body {
+  button {
+    margin-bottom:10px;
+  }
+}
+.modal-login-footer {
+  font-size: 14px;
+  text-align:center;
+  // text-decoration:underline;
+  
+  margin: 10px;
+  // background-color:wheat;
+  button {
+    background-color:transparent;
+    border:none;
+    border-bottom: 2px dotted blue;
+    cursor: pointer;
+    padding:0;
+  }
 }
 
 </style>
