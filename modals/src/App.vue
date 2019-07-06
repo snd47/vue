@@ -9,11 +9,11 @@
             <h2><strong><a href="">Modal app</a></strong></h2>
           </div>
           <div class="reg-login">
-            <button class="btn btnPrimary" @click="modalRegistration= !modalRegistration">Registration</button>
-            <modalRegistration v-show="modalRegistration" @close="modalRegistration=false" />
+            <button class="btn btnPrimary" @click="authModal.registration= !authModal.registration">Registration</button>
+            <modalRegistration v-show="authModal.registration" @close="authModal.registration=false" />
 
-            <button class="btn btnPrimary" @click="modalLogin= !modalLogin">Login</button>
-            <modalLogin v-show="modalLogin" @close="modalLogin=false" @redirect="modalRegistration= !modalRegistration" />
+            <button class="btn btnPrimary" @click="authModal.login= !authModal.login">Login</button>
+            <modalLogin v-show="authModal.login" @close="authModal.login=false" @redirect="authModal.registration= !authModal.registration" />
           </div>
         </header>
 
@@ -103,6 +103,10 @@ export default {
         email:''
       },
       modalValidate:false,
+      authModal: {
+        login: false,
+        registration: false
+      },
       modalRegistration:false,
       modalLogin:false
     }
