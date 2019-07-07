@@ -172,14 +172,35 @@ header {
 .reg-login {
   display:flex;
   justify-content: flex-end;
+  
 }
 
 .reg-login>button {
    
       background-color: transparent !important;
-      
+      border:none!important;
       color:rgba(41, 30, 2, 0.89)!important;
     margin: 0 0 30px 10px;
+  }
+
+  .reg-login>button:first-child::before {
+    background-image: url('img/user-new.png');
+    background-size: 13px 13px;
+    display: inline-block;
+    width: 13px; 
+    height: 13px;
+    content:"";
+    margin-right:10px;
+  }
+
+   .reg-login>button:nth-child(3)::before {
+    background-image: url('img/arrow-in.png');
+    background-size: 13px 13px;
+    display: inline-block;
+    width: 13px; 
+    height: 13px;
+    content:"";
+    margin-right:10px;
   }
 
 </style>
