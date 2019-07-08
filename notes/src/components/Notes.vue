@@ -4,24 +4,20 @@
     <div class="notes"> 
         <div class="note" :class="{ full:!grid}" :id="note.priority"  v-for="(note, index) in notes" :key="index"  >         
            
-                <div class="note-header"  :class="{ full:!grid}">
-                    
-<!-- https://jsfiddle.net/enL5tjs0/ -->
-         
-         
-         <input 
-         v-if="note.editing"         
-         v-model="note.title" 
-         v-focus
-         @blur="note.editing=false" 
-         @keyup.enter.prevent="forceRerender(); note.editing=false"
-         @keydown.esc="note.editing=false; note.title  = notes.oldTitle"
-         :key="compKey"
-         >    
-          <p v-else :key="compKey"  @click="forceRerender(); note.editing=true; notes.oldTitle = note.title "  >
-
+                <div class="note-header"  :class="{ full:!grid}">  
+                    <!-- https://jsfiddle.net/enL5tjs0/ --> 
+                    <input 
+                    v-if="note.editing"         
+                    v-model="note.title" 
+                    v-focus
+                    @blur="note.editing=false" 
+                    @keyup.enter.prevent="forceRerender(); note.editing=false"
+                    @keydown.esc="note.editing=false; note.title  = notes.oldTitle"
+                    :key="compKey"
+                    >    
+                    <p v-else :key="compKey"  @click="forceRerender(); note.editing=true; notes.oldTitle = note.title "  >
                         {{ note.title }}
-                   </p>        
+                    </p>        
                     <p style="cursor: pointer;" @click="removeNote(index)">x</p>
                 </div>
                
@@ -35,7 +31,7 @@
             </div>
         </div>
         
-   </template>
+ </template>
 
 <script>
 export default {
@@ -59,11 +55,12 @@ export default {
             }
         }
   },
-data() {
-    return {
-      compKey: 0,
-    };
-  },
+    data() {
+        return {
+        compKey: 0,
+        };
+    },
+
     methods: {
  
             removeNote(index) {
@@ -76,9 +73,7 @@ data() {
              forceRerender() {
                 this.compKey += 1;  
             }
-         
-         }
-         
+    }   
 }
 </script> 
 
@@ -160,8 +155,7 @@ background-color: rgb(195, 241, 195);
     }
 }
 .note-body {
-    
-    
+  
     p {
         margin: 10px 0;
     }

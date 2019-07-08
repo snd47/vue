@@ -9,8 +9,8 @@
     <!-- Search input -->
     <input type="text" :placeholder="placeholder" v-model="search" />
 
-    </div>
-  </template>
+  </div>
+</template>
 
 
 <script>
@@ -20,7 +20,7 @@ export default {
       type: String,
       required: true
     },
-    placeholder: {
+  placeholder: {
       type: String,
       default: 'Search'
     }

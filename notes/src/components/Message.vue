@@ -8,8 +8,8 @@ export default {
         mes: {
             type:[String, Number], 
             required: true
+         }
     }
-}
 }
 </script>
 

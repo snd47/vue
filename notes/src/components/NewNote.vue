@@ -9,19 +9,17 @@
     <div class="priority" id="priority"> 
         <div>Priority</div>
         <div v-for="(priority,index) in ['low', 'medium', 'high']" :key="index" :id= "index" >  
-          <label> {{ priority }}
-            <input  
-            type="radio"  
-            name="priority" 
-            :id="priority" 
-            :value ="priority" 
-            v-model="note.priority"  
-             >
-            
-             </label>
+            <label> {{ priority }}
+                <input  
+                type="radio"  
+                name="priority" 
+                :id="priority" 
+                :value ="priority" 
+                v-model="note.priority"  
+                >       
+            </label>
         </div>
-        </div>
-
+    </div>
         
     <!-- <label class="priority">
         <div>  
@@ -49,19 +47,19 @@
 
 <script>
 export default {
-    props: {
-        note:{
-            type:Object,
-            required:true
-        } 
-    },
-    methods: {
-        addNote() {
-            this.$emit('addNote', this.note)
-        }     
-	}
+        props: {
+            note:{
+                type:Object,
+                required:true
+            } 
+        },
+        methods: {
+            addNote() {
+                this.$emit('addNote', this.note)
+            }     
+        }
        
-    }
+}
 
 </script>
 
