@@ -1,12 +1,10 @@
 <template>
   <div class="wrapper">
-    <div class="wrapper-content">
-      <div id="app">
-        <h1>Template vue-cli</h1>
-        <img alt="Vue logo" src="./assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js App"/>
-      </div>
-    </div>
+    <header>
+      <h1>header</h1>
+    </header>
+
+    <router-view></router-view>
 
 
   </div>
