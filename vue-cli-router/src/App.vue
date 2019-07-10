@@ -1,7 +1,25 @@
 <template>
+
   <div class="wrapper">
+    
     <header>
-      <h1>header</h1>
+      <div class="navbar">
+        <div class="container">
+          <div class="navbar-content">
+            <div class="logo">Vue-cli</div>
+            <ul class="navbar-list">
+              <li class="navbar-item">
+                 <a href="" class="navbar-link">Example</a>
+              </li>
+              <li class="navbar-item">
+                 <a href="" class="navbar-link">Home</a>
+              </li>
+              
+            </ul>
+
+          </div>
+        </div>
+      </div>
     </header>
 
     <router-view></router-view>
