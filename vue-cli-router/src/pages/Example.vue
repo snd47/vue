@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper-content">
+    <div class="wrapper-content wrapper-content--fixed">
       <div id="app">
         <h1>HELLO HOME EXAMPLE</h1>
         <!-- <img alt="Vue logo" src="./assets/logo.png">

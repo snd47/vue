@@ -7,14 +7,14 @@
         <div class="container">
           <div class="navbar-content">
             <div class="logo">Vue-cli</div>
+
             <ul class="navbar-list">
               <li class="navbar-item">
-                 <a href="" class="navbar-link">Example</a>
+                 <router-link class="navbar-link" to="/">Home</router-link>
               </li>
               <li class="navbar-item">
-                 <a href="" class="navbar-link">Home</a>
+                 <router-link class="navbar-link" to="/example">Example</router-link>
               </li>
-              
             </ul>
 
           </div>
@@ -24,6 +24,7 @@
 
     <router-view></router-view>
 
+  <!-- <footer></footer> -->
 
   </div>
 </template>
