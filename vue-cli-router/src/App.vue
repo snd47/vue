@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -57,5 +57,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.navbar-link {
+  &.router-link-exact-active {
+    color:blue;
+  }
 }
 </style>
