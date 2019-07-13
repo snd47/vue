@@ -14,6 +14,7 @@ import NotFound from '@/pages/404'
 // Routering
 
 export default new Router({
+    mode: 'history',            // delete it for # mode in adress string
     routes:[
         {
             path: '/',
