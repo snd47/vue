@@ -5,9 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        message: 'Hello Vuex'
+        message: 'Hello Vuex again!'
     },
-    // mutations(setter) for change state 
+    // mutations(setter) for change state  
     mutations: {
         setMessage(state, payload) {
             state.message = payload
