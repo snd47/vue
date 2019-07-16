@@ -9,17 +9,22 @@ export default new Vuex.Store({
     },
     // mutations(setter) for change state  
     mutations: {
-        setMessage(state, payload) {
-            state.message = payload
+        // setMessage(state, payload) {
+        //     state.message = payload
+        // }
+        setMessage(state, message) {
+            state.message = 'hello from mutations'
         }
     },
     // actions(setter) for async data
     actions:{
-        setMessage({commit}) {
-            let mes = API
-            let mes2 = getters.getMessage()
-            commit('setMessage', {mes, mes2})
+        setMessage({commit}, payload) {
+            // let mes = API
+            // let mes2 = getters.getMessage()
+            // commit('setMessage', {mes, mes2})
+            commit('setMessage', payload)
         }
+        
     },
     // bring data from state with getters
     getters: {

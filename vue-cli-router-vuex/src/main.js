@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import router from './routes'
+
 // analogy with module structure
 // import router form './router/index.js'
+import router from './routes'
 
-import store from './store'
 // creating folder store with index.js
-
+import store from './store'
 
 import './assets/scss/main.scss'
 
