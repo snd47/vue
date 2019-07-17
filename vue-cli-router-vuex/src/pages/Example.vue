@@ -1,16 +1,16 @@
 <template>
     <div class="wrapper-content wrapper-content--fixed">
       <div id="app">
-        <h1>HELLO HOME EXAMPLE</h1>
-        
-        <p>{{getMessage}}</p>
-        <p>{{message}}</p>
+        <h1>Example Page</h1>
         <input type="text" v-model="message">
         <button class="btn btnPrimary" @click="setMessage">Change message</button>
         <br><br>
-      
+
         <p>{{getMessage}}</p>
+        <!-- <p>{{message}}</p> -->
+     
       </div>
+      
     </div>
 </template>
 
@@ -22,15 +22,17 @@ export default {
     }
   },
   created() {
-    this.message = this.$store.getters.getMessage
+    // this.message = this.$store.getters.getMessage
+    this.message = "default example message"
   },
-  // computed: {
-  //   getMessage() {
-  //     return this.$store.getters.getMessage
-  //   }
-  // },
+  computed: {
+    getMessage() {
+      return this.$store.getters.getMessage
+    }
+  },
   methods: {
     setMessage() {
+      // use setMessage from action store and send this.message to store(also we can send objects etc)
       this.$store.dispatch('setMessage', this.message)
     }
   }

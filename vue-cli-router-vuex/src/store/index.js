@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        message: 'Hello Vuex again!'
+        message: 'Hello Vuex!'
     },
     // mutations(setter) for change state  
     mutations: {
@@ -13,15 +13,17 @@ export default new Vuex.Store({
         //     state.message = payload
         // }
         setMessage(state, message) {
-            state.message = 'hello from mutations'
+            state.message = message
         }
     },
     // actions(setter) for async data
     actions:{
+        // we take all data from component as payload
         setMessage({commit}, payload) {
             // let mes = API
             // let mes2 = getters.getMessage()
             // commit('setMessage', {mes, mes2})
+        // and send payload to mutations
             commit('setMessage', payload)
         }
         
