@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     setMessage() {
+          //this.$emit('asd', this.message)
       // use setMessage from action store and send this.message to store(also we can send objects etc)
       this.$store.dispatch('setMessage', this.message)
     }
