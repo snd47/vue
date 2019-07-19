@@ -3,14 +3,18 @@
       <div id="app">
         <h1>Shop Page</h1>
         
-     
+       <item />
       </div>
       
     </div>
 </template>
 
 <script>
+
+import item from '@/components/ShopItem.vue'
+
 export default {
+  components: {item},
   data() {
     return {
       shopList: null
