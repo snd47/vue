@@ -2,8 +2,12 @@
     <div class="wrapper-content wrapper-content--fixed">
       <div id="app">
         <h1>Shop Page</h1>
-        
-       <item />
+          <div class="item__wrapper">
+          <item 
+            v-for="product in shopList" :key="product.id"
+            :product="product"
+          />
+          </div>
       </div>
       
     </div>
