@@ -69,6 +69,7 @@ export default {
         },
         getProduct: (state) => (id) => {
             return state.shopList.find(product=>product.id == id)
+            // return state.shopList.find(product=>product.id === +id)
         }
     }
 }
