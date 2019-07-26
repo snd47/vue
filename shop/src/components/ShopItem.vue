@@ -3,7 +3,9 @@
         <!-- <p>item</p> -->
 
         <img :src="product.img" :alt="product.title">
-        <p>{{product.title}}</p>
+        <!-- <p>{{product.title}}</p> -->
+        <p><router-link :to="/shop/ + product.id" class="link">{{product.title}}</router-link></p>
+        
     </div>
     
 </template>
