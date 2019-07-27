@@ -20,8 +20,8 @@ export default {
                 img: require('../assets/img/fila_megalite1.jpeg'),
                 gallery: [
                     {name:'Fila light first', img: require('../assets/img/fila_megalite1.jpeg')},
-                    {name:'Fila light first', img: require('../assets/img/fila_megalite2.jpeg')},
-                    {name:'Fila light first', img: require('../assets/img/fila_megalite3.jpeg')}
+                    {name:'Fila light second', img: require('../assets/img/fila_megalite2.jpeg')},
+                    {name:'Fila light third', img: require('../assets/img/fila_megalite3.jpeg')}
                 ]
             },
             {
@@ -33,7 +33,7 @@ export default {
                     {name:'Adidas first', img: require('../assets/img/adidas_uboost1.png')},
                     {name:'Adidas second', img: require('../assets/img/adidas_uboost2.jpeg')},
                     {name:'Adidas third', img: require('../assets/img/adidas_uboost3.jpeg')},
-                    {name:'Adidas 4', img: require('../assets/img/adidas_uboost4.jpeg')}
+                    {name:'Adidas fourth', img: require('../assets/img/adidas_uboost4.jpeg')}
                 ]
             },
             {
@@ -109,8 +109,8 @@ export default {
             return state.shopList
         },
         getProduct: (state) => (id) => {
-            return state.shopList.find(product=>product.id == id)
-            // return state.shopList.find(product=>product.id === +id)
+            // return state.shopList.find(product=>product.id == id)
+            return state.shopList.find(product=>product.id === +id)
         }
     }
 }
