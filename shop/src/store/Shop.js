@@ -17,9 +17,9 @@ export default {
                 id:2,
                 title: 'Fila light',
                 descr: 'Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Ac felis donec et odio pellentesque diam volutpat commodo sed. Fermentum iaculis eu non diam phasellus vestibulum lorem sed risus. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Varius morbi enim nunc faucibus a pellentesque sit amet. Eu facilisis sed odio morbi quis commodo odio aenean. Vitae et leo duis ut diam quam nulla. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Et netus et malesuada fames ac turpis egestas maecenas pharetra. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed.',
-                img: require('../assets/img/fila_megalite1.jpeg'),
+                img: require('../assets/img/fila_megalite1.png'),
                 gallery: [
-                    {name:'Fila light first', img: require('../assets/img/fila_megalite1.jpeg')},
+                    {name:'Fila light first', img: require('../assets/img/fila_megalite1.png')},
                     {name:'Fila light second', img: require('../assets/img/fila_megalite2.jpeg')},
                     {name:'Fila light third', img: require('../assets/img/fila_megalite3.jpeg')}
                 ]
@@ -40,9 +40,9 @@ export default {
                 id:4,
                 title: 'Nike black',
                 descr: 'Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Ac felis donec et odio pellentesque diam volutpat commodo sed. Fermentum iaculis eu non diam phasellus vestibulum lorem sed risus. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Varius morbi enim nunc faucibus a pellentesque sit amet. Eu facilisis sed odio morbi quis commodo odio aenean. Vitae et leo duis ut diam quam nulla. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Et netus et malesuada fames ac turpis egestas maecenas pharetra. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed.',
-                img: require('../assets/img/nike_black_rev1.jpeg'),
+                img: require('../assets/img/nike_black_rev1.png'),
                 gallery: [
-                    {name:'Nike black first', img: require('../assets/img/nike_black_rev1.jpeg')},
+                    {name:'Nike black first', img: require('../assets/img/nike_black_rev1.png')},
                     {name:'Nike black second', img: require('../assets/img/nike_black_rev2.jpeg')},
                     {name:'Nike black third', img: require('../assets/img/nike_black_rev3.jpeg')}
                 ]
@@ -51,9 +51,9 @@ export default {
                 id:5,
                 title: 'Nike white',
                 descr: 'Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Ac felis donec et odio pellentesque diam volutpat commodo sed. Fermentum iaculis eu non diam phasellus vestibulum lorem sed risus. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Varius morbi enim nunc faucibus a pellentesque sit amet. Eu facilisis sed odio morbi quis commodo odio aenean. Vitae et leo duis ut diam quam nulla. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Et netus et malesuada fames ac turpis egestas maecenas pharetra. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed.',
-                img: require('../assets/img/nike_rev1white.jpeg'),
+                img: require('../assets/img/nike_rev1white.png'),
                 gallery: [
-                    {name:'Nike white first', img: require('../assets/img/nike_rev1white.jpeg')},
+                    {name:'Nike white first', img: require('../assets/img/nike_rev1white.png')},
                     {name:'Nike white second', img: require('../assets/img/nike_rev2white.jpeg')},
                     {name:'Nike white third', img: require('../assets/img/nike_rev3white.jpeg')}
                 ]
@@ -62,9 +62,9 @@ export default {
                 id:6,
                 title: 'Puma comete',
                 descr: 'Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Ac felis donec et odio pellentesque diam volutpat commodo sed. Fermentum iaculis eu non diam phasellus vestibulum lorem sed risus. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Varius morbi enim nunc faucibus a pellentesque sit amet. Eu facilisis sed odio morbi quis commodo odio aenean. Vitae et leo duis ut diam quam nulla. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Et netus et malesuada fames ac turpis egestas maecenas pharetra. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed.',
-                img: require('../assets/img/puma_comete1.jpeg'),
+                img: require('../assets/img/puma_comete1.png'),
                 gallery: [
-                    {name:'Puma comete first', img: require('../assets/img/puma_comete1.jpeg')},
+                    {name:'Puma comete first', img: require('../assets/img/puma_comete1.png')},
                     {name:'Puma comete second', img: require('../assets/img/puma_comete2.jpeg')},
                     {name:'Puma comete third', img: require('../assets/img/puma_comete3.jpeg')}
                 ]
@@ -73,9 +73,9 @@ export default {
                 id:7,
                 title: 'Puma hybrid',
                 descr: 'Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Ac felis donec et odio pellentesque diam volutpat commodo sed. Fermentum iaculis eu non diam phasellus vestibulum lorem sed risus. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Varius morbi enim nunc faucibus a pellentesque sit amet. Eu facilisis sed odio morbi quis commodo odio aenean. Vitae et leo duis ut diam quam nulla. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Et netus et malesuada fames ac turpis egestas maecenas pharetra. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed.',
-                img: require('../assets/img/puma_hybc1.jpeg'),
+                img: require('../assets/img/puma_hybc1.png'),
                 gallery: [
-                    {name:'Puma hybrid first', img: require('../assets/img/puma_hybc1.jpeg')},
+                    {name:'Puma hybrid first', img: require('../assets/img/puma_hybc1.png')},
                     {name:'Puma hybrid second', img: require('../assets/img/puma_hybc2.jpeg')},
                     {name:'Puma hybrid third', img: require('../assets/img/puma_hybc3.jpeg')}
                 ]
@@ -84,9 +84,9 @@ export default {
                 id:8,
                 title: 'Skechers overhall',
                 descr: 'Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Ac felis donec et odio pellentesque diam volutpat commodo sed. Fermentum iaculis eu non diam phasellus vestibulum lorem sed risus. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Varius morbi enim nunc faucibus a pellentesque sit amet. Eu facilisis sed odio morbi quis commodo odio aenean. Vitae et leo duis ut diam quam nulla. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Et netus et malesuada fames ac turpis egestas maecenas pharetra. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed.',
-                img: require('../assets/img/skech_overhall1.jpeg'),
+                img: require('../assets/img/skech_overhall1.png'),
                 gallery: [
-                    {name:'Skechers overhall first', img: require('../assets/img/skech_overhall1.jpeg')},
+                    {name:'Skechers overhall first', img: require('../assets/img/skech_overhall1.png')},
                     {name:'Skechers overhall second', img: require('../assets/img/skech_overhall1.jpeg')},
                     {name:'Skechers overhall third', img: require('../assets/img/skech_overhall1.jpeg')}
                 ]
